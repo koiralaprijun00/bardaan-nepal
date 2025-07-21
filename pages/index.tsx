@@ -201,23 +201,82 @@ const BardanOnePage = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 p-8 rounded-2xl text-white text-center">
-            <h3 className="text-2xl font-bold mb-4">Key Focus Areas</h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="space-y-2">
-                <div className="text-green-100">• Sustainable Forest Management</div>
-                <div className="text-green-100">• Species Conservation</div>
-                <div className="text-green-100">• Climate Change Adaptation</div>
+          <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-white mb-2">Key Focus Areas</h3>
+              <p className="text-slate-300">Our specialized domains of expertise</p>
+            </div>
+            <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <TreePine className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Forest Management</h4>
+                <p className="text-green-200 text-sm text-center">Sustainable Forest Management</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-green-100">• REDD+ Implementation</div>
-                <div className="text-green-100">• Sustainable Livelihoods</div>
-                <div className="text-green-100">• Conservation Awareness</div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Leaf className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Species Conservation</h4>
+                <p className="text-blue-200 text-sm text-center">Biodiversity Protection</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-green-100">• Good Governance</div>
-                <div className="text-green-100">• NTFPs Promotion</div>
-                <div className="text-green-100">• EIA/IEE Services</div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Globe className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Climate Adaptation</h4>
+                <p className="text-purple-200 text-sm text-center">Climate Change Solutions</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">REDD+ Programs</h4>
+                <p className="text-emerald-200 text-sm text-center">Implementation & Support</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Sustainable Livelihoods</h4>
+                <p className="text-orange-200 text-sm text-center">Community Development</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <BookOpen className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Awareness Programs</h4>
+                <p className="text-pink-200 text-sm text-center">Conservation Education</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">Good Governance</h4>
+                <p className="text-indigo-200 text-sm text-center">Policy & Management</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <TreePine className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">NTFPs Promotion</h4>
+                <p className="text-teal-200 text-sm text-center">Non-Timber Forest Products</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
+                <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-white font-semibold text-center mb-2">EIA/IEE Services</h4>
+                <p className="text-cyan-200 text-sm text-center">Environmental Assessment</p>
               </div>
             </div>
           </div>
