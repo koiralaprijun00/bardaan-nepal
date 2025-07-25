@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Leaf, Users, Target, Phone, Mail, MapPin, Globe, TreePine, BookOpen, Award, ChevronUp, ArrowRight } from 'lucide-react';
+import { Leaf, Users, Target, Phone, Mail, MapPin, Globe, TreePine, BookOpen, Award, ChevronUp, ArrowRight, CheckCircle } from 'lucide-react';
 
 const BardanOnePage = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -7,7 +7,7 @@ const BardanOnePage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'services', 'team', 'projects', 'contact'];
+      const sections = ['home', 'about', 'services', 'team', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -68,7 +68,7 @@ const BardanOnePage = () => {
     },
     {
       name: "Dr. Surendra Bahadur Thapa",
-      position: "Deputy Chairperson",
+      position: "Deputy Chairperson", 
       title: "Agro-socio-economist",
       experience: "18+ years in community development"
     },
@@ -86,13 +86,13 @@ const BardanOnePage = () => {
     }
   ];
 
-  const projects = [
-    "Review of Marketable NTFPs - UN-FAO",
-    "Five Years Strategic Plan for NTFPs - FNCCI/NEHHPA",
-    "Market Study of Medicinal Plants - Department of Plant Resources",
-    "Vegetation Study for Bagmati River Basin - Asian Development Bank",
-    "Training on CITES to Police Personnel - WWF Nepal",
-    "PES Mechanism Development - WWF Nepal"
+
+
+  const stats = [
+    { number: "13+", label: "Years of Experience" },
+    { number: "50+", label: "Projects Completed" },
+    { number: "100+", label: "Clients Served" },
+    { number: "25+", label: "Research Publications" }
   ];
 
   return (
@@ -115,7 +115,6 @@ const BardanOnePage = () => {
               <NavButton section="about" icon={<Users className="w-4 h-4" />}>About</NavButton>
               <NavButton section="services" icon={<Target className="w-4 h-4" />}>Services</NavButton>
               <NavButton section="team" icon={<Users className="w-4 h-4" />}>Team</NavButton>
-              <NavButton section="projects" icon={<Award className="w-4 h-4" />}>Projects</NavButton>
               <NavButton section="contact" icon={<Phone className="w-4 h-4" />}>Contact</NavButton>
             </nav>
             <button
@@ -128,7 +127,7 @@ const BardanOnePage = () => {
         </div>
       </header>
 
-      {/* Home Section */}
+      {/* Home Section - KEEP AS BANNER */}
       <section id="home" className="pt-16 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="text-center py-20">
@@ -159,131 +158,91 @@ const BardanOnePage = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - SPLIT LAYOUT */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">About BARDAN</h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              Founded in 2011, BARDAN is an independent, profit-not-distributing company established by natural resource management professionals, development experts, and social activists.
-            </p>
+          {/* Split Content */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">About BARDAN</h2>
+              <p className="text-lg text-gray-600 mb-6">
+                Founded in 2011, BARDAN is an independent, profit-not-distributing company established by natural resource management professionals, development experts, and social activists.
+              </p>
+              <p className="text-gray-600 mb-8">
+                We are dedicated to being a leading professional institution delivering standard and quality services in biodiversity conservation, environmental management, and contributing to globally important sectors in natural resources and climate change in Nepal.
+              </p>
+              
+              {/* Mission Points */}
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Professional Excellence</h3>
+                    <p className="text-gray-600 text-sm">Delivering standard and quality services in biodiversity conservation</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Global Impact</h3>
+                    <p className="text-gray-600 text-sm">Contributing to globally important environmental sectors</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Innovation Leadership</h3>
+                    <p className="text-gray-600 text-sm">Implementing complex pilot projects as role models</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="bg-gradient-to-br from-green-600 to-blue-600 p-8 rounded-3xl text-white">
+              <h3 className="text-2xl font-bold mb-8 text-center">Our Impact</h3>
+              <div className="grid grid-cols-2 gap-6">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-3xl font-bold mb-2">{stat.number}</div>
+                    <div className="text-green-100 text-sm">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
-              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Target className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Our Mission</h3>
-              <p className="text-gray-600">
-                To be a leading professional institution delivering standard and quality services in biodiversity conservation and environmental management.
-              </p>
-            </div>
-
-            <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Globe className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Our Focus</h3>
-              <p className="text-gray-600">
-                Contributing to globally important sectors in natural resources, environmental management, and climate change in Nepal.
-              </p>
-            </div>
-
-            <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Our Approach</h3>
-              <p className="text-gray-600">
-                Implementing complex pilot projects to showcase success and act as role models in our field of expertise.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-white mb-2">Key Focus Areas</h3>
-              <p className="text-slate-300">Our specialized domains of expertise</p>
-            </div>
-            <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <TreePine className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Forest Management</h4>
-                <p className="text-green-200 text-sm text-center">Sustainable Forest Management</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Leaf className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Species Conservation</h4>
-                <p className="text-blue-200 text-sm text-center">Biodiversity Protection</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Globe className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Climate Adaptation</h4>
-                <p className="text-purple-200 text-sm text-center">Climate Change Solutions</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-emerald-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">REDD+ Programs</h4>
-                <p className="text-emerald-200 text-sm text-center">Implementation & Support</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Users className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Sustainable Livelihoods</h4>
-                <p className="text-orange-200 text-sm text-center">Community Development</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-pink-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Awareness Programs</h4>
-                <p className="text-pink-200 text-sm text-center">Conservation Education</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-indigo-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Award className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">Good Governance</h4>
-                <p className="text-indigo-200 text-sm text-center">Policy & Management</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <TreePine className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">NTFPs Promotion</h4>
-                <p className="text-teal-200 text-sm text-center">Non-Timber Forest Products</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-cyan-500 rounded-lg flex items-center justify-center mb-4 mx-auto">
-                  <Target className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-white font-semibold text-center mb-2">EIA/IEE Services</h4>
-                <p className="text-cyan-200 text-sm text-center">Environmental Assessment</p>
-              </div>
+          {/* Focus Areas - HORIZONTAL SCROLL */}
+          <div className="bg-gray-50 p-8 rounded-3xl">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-8">Key Focus Areas</h3>
+            <div className="flex overflow-x-auto gap-6 pb-4">
+              {[
+                { icon: TreePine, title: "Forest Management", bgColor: "bg-green-500" },
+                { icon: Leaf, title: "Species Conservation", bgColor: "bg-blue-500" },
+                { icon: Globe, title: "Climate Adaptation", bgColor: "bg-purple-500" },
+                { icon: Target, title: "REDD+ Programs", bgColor: "bg-emerald-500" },
+                { icon: Users, title: "Sustainable Livelihoods", bgColor: "bg-orange-500" },
+                { icon: BookOpen, title: "Conservation Awareness", bgColor: "bg-pink-500" },
+                { icon: Award, title: "Good Governance", bgColor: "bg-indigo-500" },
+                { icon: TreePine, title: "NTFPs Promotion", bgColor: "bg-teal-500" },
+                { icon: Target, title: "EIA/IEE Services", bgColor: "bg-cyan-500" }
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="flex-shrink-0 w-40 text-center p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <div className={`w-12 h-12 ${item.bgColor} rounded-lg flex items-center justify-center mx-auto mb-3`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="font-medium text-gray-900 text-sm">{item.title}</h4>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - FEATURE + GRID COMBO */}
       <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -293,171 +252,121 @@ const BardanOnePage = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Clean Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-5xl mx-auto">
             {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 text-green-600">
-                  {service.icon}
+              <div key={index} className="text-center group">
+                <div className="w-16 h-16 bg-green-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-100 transition-colors duration-300">
+                  <div className="text-green-600">
+                    {service.icon}
+                  </div>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600">{service.desc}</p>
+                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-12 grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Scientific & Academic Services</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Biological and Environmental Studies</li>
-                <li>• Baseline Surveys and Assessments</li>
-                <li>• Statistical Analysis and Research</li>
-                <li>• Restoration and Management Planning</li>
-                <li>• Inventories and Assessments</li>
-              </ul>
-            </div>
-            <div className="bg-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Management Services</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Project Planning and Design</li>
-                <li>• Monitoring and Evaluation</li>
-                <li>• Training and Technology Transfer</li>
-                <li>• EIA/IEE Services</li>
-                <li>• Business Plan Development</li>
-              </ul>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section - CLEAN PROFILE LAYOUT */}
       <section id="team" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Board of Directors</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Leadership Team</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our leadership team consists of experienced professionals with expertise in natural resource management and sustainable development
+              Experienced professionals driving excellence in natural resource management and sustainable development
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Clean Team Grid */}
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             {boardMembers.map((member, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-2xl text-center hover:shadow-lg transition-all duration-300">
-                <div className="w-20 h-20 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+              <div key={index} className="text-center">
+                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 font-bold text-xl mx-auto mb-6">
                   {member.name.split(' ').map(n => n[0]).join('')}
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-green-600 font-semibold mb-1">{member.position}</p>
-                <p className="text-gray-600 text-sm mb-2">{member.title}</p>
-                <p className="text-gray-500 text-xs">{member.experience}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p className="text-green-600 font-semibold mb-2">{member.position}</p>
+                <p className="text-gray-600 text-sm mb-1">{member.title}</p>
+                <p className="text-gray-500 text-sm">{member.experience}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-50">
+
+
+      {/* Contact Section - SPLIT SCREEN LAYOUT */}
+      <section id="contact" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Completed Projects</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Connect With Us</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Successfully completed projects showcasing our expertise in biodiversity conservation and sustainable development
+              Ready to discuss your project or learn more about our services? We'd love to hear from you
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6 text-green-600" />
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Contact Info Side */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Get In Touch</h3>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="w-6 h-6 text-green-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Office Address</h4>
+                      <p className="text-gray-600">Balkhu, Kathmandu MP City-14<br />P.O. Box: 4555, Nepal</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{project.split(' - ')[0]}</h3>
-                    <p className="text-green-600 font-medium text-sm">{project.split(' - ')[1]}</p>
-                    <div className="mt-3 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium inline-block">
-                      Completed
+                  
+                  <div className="flex items-start gap-4">
+                    <Phone className="w-6 h-6 text-blue-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Phone Numbers</h4>
+                      <p className="text-gray-600">+977-1-4036359<br />+977-9841527467</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <Mail className="w-6 h-6 text-purple-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
+                      <p className="text-gray-600">bardan.np@mail.com</p>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Get In Touch</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to discuss your project or learn more about our services? Contact our team today
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Address</h4>
-                    <p className="text-gray-600">Balkhu, Kathmandu MP City-14, P.O. Box: 4555, Nepal</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+977-1-4036359 / +977-9841527467</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-purple-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">bardan.np@mail.com</p>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Contacts</h3>
-              
-              <div className="space-y-4">
-                <div className="p-4 bg-white rounded-lg shadow-md">
-                  <h4 className="font-semibold text-gray-900">Bhesh Raj Oli</h4>
-                  <p className="text-green-600 font-medium">Managing Director</p>
-                  <p className="text-gray-600 text-sm">+977-9841527467 • bheshrajo@yahoo.com</p>
+            {/* Key Contacts Side */}
+            <div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Personnel</h3>
+              <div className="space-y-6">
+                <div className="border-l-4 border-green-600 pl-6 py-4">
+                  <h4 className="text-xl font-bold text-gray-900">Bhesh Raj Oli</h4>
+                  <p className="text-green-600 font-semibold mb-2">Managing Director</p>
+                  <div className="space-y-1 text-gray-600">
+                    <p>📞 +977-9841527467</p>
+                    <p>✉️ bheshrajo@yahoo.com</p>
+                  </div>
                 </div>
 
-                <div className="p-4 bg-white rounded-lg shadow-md">
-                  <h4 className="font-semibold text-gray-900">Dipesh Pyakurel</h4>
-                  <p className="text-blue-600 font-medium">Program Director</p>
-                  <p className="text-gray-600 text-sm">+977-9751019322 • dipeshpyakurel@gmail.com</p>
-                </div>
-
-                <div className="p-4 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg text-white">
-                  <h4 className="font-semibold mb-2">Visit Our Blog</h4>
-                  <p className="text-green-100 text-sm mb-2">Stay updated with our latest work and insights</p>
-                  <a href="http://www.nepalbardan.wordpress.com" className="text-white underline hover:text-green-100">
-                    nepalbardan.wordpress.com
-                  </a>
+                <div className="border-l-4 border-blue-600 pl-6 py-4">
+                  <h4 className="text-xl font-bold text-gray-900">Dipesh Pyakurel</h4>
+                  <p className="text-blue-600 font-semibold mb-2">Program Director</p>
+                  <div className="space-y-1 text-gray-600">
+                    <p>📞 +977-9751019322</p>
+                    <p>✉️ dipeshpyakurel@gmail.com</p>
+                  </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
